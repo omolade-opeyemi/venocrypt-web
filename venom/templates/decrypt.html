@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt Page</title>
+</head>
+<body style="background-color: orange;margin:0">
+    <nav style="background-color: rgb(37, 56, 50);height:70px;">
+        <ul style="display: flex;list-style:none;width:200px;">
+            <li style="margin: inherit;"><a style="text-decoration: none;color:azure;" href="/"><h1 style="margin: auto;"><b> VENOCRYPT</b></h1></a></li>
+            <li style="margin-bottom: 50px;"><a style="text-decoration: none;color:azure;margin-right: 50px" href="/"><h1 style="margin-left: 300px;"> Encrypt </h1></a></li>
+            <li ><a style="text-decoration: none;color:azure" href="decrypt.html"><h1 style="margin-left: 200px;"> Decrypt</h1></a></li>
+        </ul>
+    </nav>
+    <div style="text-align:center;" >
+        <h1>
+            Decrypt Text Area
+            <form action="decrypt.html", method="POST">
+                {% csrf_token %}
+                <input required type="password" name="password" id="password" placeholder="password" style="height: 30px; width:170px;"><br><br>
+                
+                <textarea required name="text" id="text" cols="30" rows="10" placeholder="Type your text here"></textarea><br><br>
+                <button type="submit">submit</button>
+            </form>
+        </h1>
+        <div>
+            <p>{{result}}</p>
+        </div>
+        
+    <br><br><hr>
+    
+
+        <h1>
+            Decrypt File Area
+            <form action="fdecrypt.html", method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="password" name="password" id="password" placeholder="password" style="height: 30px; width:170px;" required><br><br>
+                <input type="text" name="output" id="" placeholder="output name" style="height: 30px; width:170px;" required><br><br>
+                
+                <input type="file" name="file" id="file" required><br><br>
+                <button type="submit">submit</button>
+            </form>
+        </h1>
+    </div>
+</body>
+</html>
