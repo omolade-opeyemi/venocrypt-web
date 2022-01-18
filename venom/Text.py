@@ -10,10 +10,9 @@ def encryptt(key,text):
     padded = pad(message, AES.block_size)
     ciphertext = cipher.encrypt(padded)
     crypted = IV + ciphertext
-    print(crypted)
     s = str(crypted)[1: ]
-    print(s)
     return s
+
 
 def decryptt(key, text):
     message = text

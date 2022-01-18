@@ -2,8 +2,8 @@ from django.urls import path
 from . views import *
 
 urlpatterns = [
-    #path('', encryptTextView, name='encrypt'),
-    path('swagger', File.as_view()),
-    #path('decrypt.html', decryptTextView, name='decrypt'),
-    #path('fdecrypt.html', decryptFileView, name='decryptfile' )   
+    path('encryptText', EncryptText.as_view()),
+    path('encryptFile', EncryptFile.as_view()),
+    path('decryptText', DecryptText.as_view()),
+    path('decryptFile', DecryptFile.as_view()),   
 ]
